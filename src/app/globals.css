@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orange: #F5A623;
+  --dark-orange: #D4841A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0D0D0D;
+  color: #FAFAFA;
+  font-family: 'Barlow', sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-orange text-dark font-bold uppercase tracking-wide px-6 py-3 rounded text-sm transition-all hover:bg-orange-dark;
+  }
+  .btn-outline {
+    @apply bg-transparent text-white border border-white/30 font-semibold uppercase tracking-wide px-6 py-3 rounded text-sm transition-all hover:border-orange hover:text-orange;
+  }
+  .section-label {
+    @apply text-orange text-xs font-bold uppercase tracking-widest mb-2 block;
+  }
+  .section-title {
+    @apply font-condensed font-black text-4xl uppercase text-white;
+  }
+  .card {
+    @apply bg-dark-100 border border-dark-300 rounded p-5;
+  }
+}
