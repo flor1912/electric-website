@@ -1,20 +1,27 @@
-# ⚡ Agon Electric — Website
+# ⚡ Agon Electric Website
 
-Next.js 14 business website for Agon Electric, Toronto.
+A responsive business website for **Agon Electric**, a Toronto-based electrical company. Designed and built independently with Next.js 14 and Tailwind CSS.
 
-## 🚀 Getting Started (Localhost)
+---
 
-### 1. Install dependencies
-```bash
-npm install
-```
+## ✨ Features
 
-### 2. Run the dev server
-```bash
-npm run dev
-```
+- **Five pages:** Home, Services, About, Reviews and Contact, built with the Next.js App Router
+- **Responsive design:** mobile-first layout styled with Tailwind CSS
+- **Reusable components:** sticky navigation bar with a mobile menu, shared footer and a floating WhatsApp contact button, all wired in through a common root layout
+- **Contact form:** submissions are handled by a server-side API route (`/api/contact`) that sends email through the [Resend](https://resend.com) API
+- **Secure configuration:** API keys are stored in environment variables and kept out of version control
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+---
+
+## 🛠️ Built With
+
+| Technology | Purpose |
+|---|---|
+| [Next.js 14](https://nextjs.org/) | React framework (App Router, API routes) |
+| [React](https://react.dev/) | UI components |
+| [Tailwind CSS](https://tailwindcss.com/) | Styling |
+| [Resend](https://resend.com/) | Transactional email for the contact form |
 
 ---
 
@@ -23,63 +30,66 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ```
 src/
 ├── app/
-│   ├── layout.js          # Root layout (Navbar + Footer on every page)
-│   ├── globals.css        # Global styles + Tailwind
-│   ├── page.js            # Home page
-│   ├── services/page.js   # Services page
-│   ├── about/page.js      # About page
-│   ├── reviews/page.js    # Reviews page
-│   └── contact/page.js    # Contact page
+│   ├── api/
+│   │   └── contact/route.js   # Contact form API route (Resend)
+│   ├── layout.js              # Root layout (Navbar + Footer on every page)
+│   ├── globals.css            # Global styles + Tailwind
+│   ├── page.js                # Home page
+│   ├── services/page.js       # Services page
+│   ├── about/page.js          # About page
+│   ├── reviews/page.js        # Reviews page
+│   └── contact/page.js        # Contact page
 └── components/
-    ├── Navbar.js           # Sticky nav with mobile menu
-    ├── Footer.js           # Footer with links + contact
-    └── WhatsAppButton.js   # Floating WhatsApp button
+    ├── Navbar.js              # Sticky nav with mobile menu
+    ├── Footer.js              # Footer with links and contact details
+    └── WhatsAppButton.js      # Floating WhatsApp button
 ```
 
 ---
 
-## ✏️ Things To Customize
+## 🚀 Running Locally
 
-### Contact form (Formspree)
-1. Sign up free at [formspree.io](https://formspree.io)
-2. Create a new form → copy your Form ID
-3. Replace `YOUR_FORM_ID` in:
-   - `src/app/page.js`
-   - `src/app/contact/page.js`
+**Prerequisites:** Node.js 18 or later
 
-### Google Maps embed
-In `src/app/contact/page.js`, replace the placeholder div with a real iframe:
-```html
-<iframe
-  src="https://www.google.com/maps/embed?pb=YOUR_EMBED_URL"
-  width="100%" height="192" style={{border:0}} allowFullScreen loading="lazy"
-/>
-```
+1. Clone the repository and install dependencies:
+   ```bash
+   git clone https://github.com/flor1912/electric-website.git
+   cd electric-website
+   npm install
+   ```
 
-### Google Review link
-In `src/app/reviews/page.js`, replace `YOUR_GOOGLE_REVIEW_LINK` with your
-actual Google Business review link (get it from your Google Business Profile dashboard).
+2. Create a `.env.local` file in the project root:
+   ```
+   RESEND_API_KEY=your_resend_api_key
+   ```
 
-### WhatsApp number
-Already set to `14372987771`. If it changes, update `src/components/WhatsAppButton.js`
-and `src/components/Footer.js`.
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
----
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🌐 Deploying to Vercel (when ready)
-
-1. Push this project to a GitHub repository
-2. Go to [vercel.com](https://vercel.com) → Import project from GitHub
-3. Vercel auto-detects Next.js — just click Deploy
-4. Add your custom domain in Vercel dashboard → Settings → Domains
-
-**Cost:** Vercel free tier is enough for this site. Only pay for the domain (~$13 CAD/yr).
+> `.env.local` is listed in `.gitignore` and must never be committed.
 
 ---
 
-## 🛠️ Built With
+## 🌐 Deployment
 
-- [Next.js 14](https://nextjs.org/) — React framework
-- [Tailwind CSS](https://tailwindcss.com/) — Styling
-- [Formspree](https://formspree.io/) — Contact form handling (free)
-- [Vercel](https://vercel.com/) — Deployment (free)
+The project is ready to deploy on [Vercel](https://vercel.com), which detects Next.js automatically. Add `RESEND_API_KEY` under **Settings → Environment Variables** before deploying.
+
+---
+
+## 📸 Screenshots
+
+![Home page](screenshots/home.png)
+![Services page](screenshots/services.png)
+![About page](screenshots/about.png)
+![Reviews page](screenshots/reviews.png)
+![Contact page](screenshots/contact.png)
+
+---
+
+## 👩‍💻 Author
+
+Built by **Fluriana Uka** — [GitHub](https://github.com/flor1912) · [LinkedIn](https://www.linkedin.com/in/fluriana-uka)
